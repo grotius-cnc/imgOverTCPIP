@@ -5,7 +5,9 @@ This c++ basic example is able to send and recieve :
 		1. Text messages.
 		2. Files, for example pictures.
 
-![XDesignerDialog](https://raw.githubusercontent.com/grotius-cnc/imgOverTCPIP/GitHubSample.png)
+
+![imgOverTCPIP](https://github.com/grotius-cnc/imgOverTCPIP/blob/main/GitHubSample.png)
+
 
 Transfer image over TCP/IP socket. This is really fast. ~10ms for the attached picture.
 
