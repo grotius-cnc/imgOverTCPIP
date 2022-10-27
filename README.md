@@ -18,76 +18,76 @@ How it works.
 
 Program cyclus:
 
-		1. 	The server will wait until the client is up.
-		2. 	When client is up, it will transfer the picture trough 
-			the socket connection to the server.
-		3. 	The server will recieve packages and will send a confirmation 
-			text message to the client to keep the process going.
-		4. 	When the client has recieved the text message, 
-			it will send the next package cq. chunk until data transfer 
-			is completed.
+	1. 	The server will wait until the client is up.
+	2. 	When client is up, it will transfer the picture trough 
+		the socket connection to the server.
+	3. 	The server will recieve packages and will send a confirmation 
+		text message to the client to keep the process going.
+	4. 	When the client has recieved the text message, 
+		it will send the next package cq. chunk until data transfer 
+		is completed.
 		
-		Considerations:
+Considerations:
 		
-		1. 	Multi threading. When integrating this code in a gui project, 
-			threading with detach is a must, otherwise this process 
-			will lock your gui app. This example is creating a thread in a
-			c++ class and passing a int value trough it.
-			
-			class theClass {
-			public:
-				theClass(int theValue){
-					myThread = new std::thread(&XClient::thread,this,theValue);
-       				myThread->detach(); //! Execute the thread independent from other programs.
-        		}
-        		
-       			void thread(int theValue){
-       				//! This function will run like a while loop.
-   				}
-    		};
-    		private:
-    		std::thread *myThread;
-    		
+	1. 	Multi threading. When integrating this code in a gui project, 
+		threading with detach is a must, otherwise this process 
+		will lock your gui app. This example is creating a thread in a
+		c++ class and passing a int value trough it.
 		
-		2.  When using multi threading in a gui project, you could 
-			use the std::mutex to lock variables being used by multiple
-			threads at the same time. Setting up a mutex is quite easy.
-			The thread calling the function() will lock acces from other 
-			threads to the variable.
-			
-			std::mutex myMutex;
-			void function(){
-	    		myMutex.lock();
-	    			// update your variable here. 
-				myMutex.unlock();
-			}
-			
-		3. 	Log the bytes send and recieved so you can check if data 
-			is really transferred. 
-			I have experienced data losses in other socket examples.
+		class theClass {
+		public:
+			theClass(int theValue){
+				myThread = new std::thread(&XClient::thread,this,theValue);
+       			myThread->detach(); //! Execute the thread independent from other programs.
+        	}
+        	
+       		void thread(int theValue){
+       			//! This function will run like a while loop.
+   			}
+    	};
+    	private:
+    	std::thread *myThread;
+    	
+	
+	2.  When using multi threading in a gui project, you could 
+		use the std::mutex to lock variables being used by multiple
+		threads at the same time. Setting up a mutex is quite easy.
+		The thread calling the function() will lock acces from other 
+		threads to the variable.
+		
+		std::mutex myMutex;
+		void function(){
+	    	myMutex.lock();
+	    		// update your variable here. 
+			myMutex.unlock();
+		}
+		
+	3. 	Log the bytes send and recieved so you can check if data 
+		is really transferred. 
+		I have experienced data losses in other socket examples.
 
 Performance:
 
-		When not outcommented, std::chrono log's the transfer time. 
-		
-		The attached picture = 572,7 KiB (586403 B) 
-		Transfer time : ~10ms
+	When not outcommented, std::chrono log's the transfer time. 
+	
+	The attached picture = 572,7 KiB (586403 B) 
+	Transfer time : ~10ms
 
 To build the project:
 		
-		clone https://github.com/grotius-cnc/imgOverTCPIP.git
-		mkdir build
-		cd build
-		cmake .. 
-		make
+	clone https://github.com/grotius-cnc/imgOverTCPIP.git
+	mkdir build
+	cd build
+	cmake .. 
+	make
 
 To run in terminal, first start the server: 
 
-		$ ./server
+	$ ./server
 		
 If server run's, fire up the client :		
 
-		$ ./client.
+	$ ./client.
 
 Or just open the cmakelist file in a code editor, 
 this will problably load the project.
