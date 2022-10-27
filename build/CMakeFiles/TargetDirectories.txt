@@ -1,0 +1,8 @@
+/home/user/XCreator/vendor/imgOverTCPIP/build/CMakeFiles/rebuild_cache.dir
+/home/user/XCreator/vendor/imgOverTCPIP/build/CMakeFiles/edit_cache.dir
+/home/user/XCreator/vendor/imgOverTCPIP/build/server/CMakeFiles/rebuild_cache.dir
+/home/user/XCreator/vendor/imgOverTCPIP/build/server/CMakeFiles/edit_cache.dir
+/home/user/XCreator/vendor/imgOverTCPIP/build/server/CMakeFiles/server.dir
+/home/user/XCreator/vendor/imgOverTCPIP/build/client/CMakeFiles/rebuild_cache.dir
+/home/user/XCreator/vendor/imgOverTCPIP/build/client/CMakeFiles/edit_cache.dir
+/home/user/XCreator/vendor/imgOverTCPIP/build/client/CMakeFiles/client.dir
