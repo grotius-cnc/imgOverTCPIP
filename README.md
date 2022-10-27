@@ -1,4 +1,4 @@
-imgOverTCPIP
+#imgOverTCPIP
 
 This c++ basic example is able to send and recieve :
 
@@ -9,8 +9,6 @@ This c++ basic example is able to send and recieve :
 ![imgOverTCPIP](https://github.com/grotius-cnc/imgOverTCPIP/blob/main/GitHubSample.png)
 
 
-Transfer image over TCP/IP socket. This is really fast. ~10ms for the attached picture.
-
 Skynet Cyberdyne ported the original code to cpp and transferred the code into a cmake project.
 
 The code has 2 projects wich are build by the toplevel cmake file.
@@ -19,15 +17,20 @@ How it works.
 
 Program cyclus:
 
-		1. The server will wait until the client is up.
-		2. When client is up, it will transfer the picture trough the socket connection to the server.
-		3. The server will recieve packages and will send a confirmation text message to the client to keep the process going.
-		4. When the client has recieved the text message, it will send the next package cq. chunk until data transfer is completed.
+		1. 	The server will wait until the client is up.
+		2. 	When client is up, it will transfer the picture trough 
+			the socket connection to the server.
+		3. 	The server will recieve packages and will send a confirmation 
+			text message to the client to keep the process going.
+		4. 	When the client has recieved the text message, 
+			it will send the next package cq. chunk until data transfer is completed.
 		
 Considerations:
 
-		1. Multi threading. When integrating this code in a gui project, threading with detach is a must, otherwise this process will lock your gui app.
-		2. Log the bytes send and recieved so you can check if data is really transferred. I have experienced data losses in other socket examples.
+		1. 	Multi threading. When integrating this code in a gui project, 
+			threading with detach is a must, otherwise this process will lock your gui app.
+		2. 	Log the bytes send and recieved so you can check if data is really transferred. 
+			I have experienced data losses in other socket examples.
 
 Performance:
 
