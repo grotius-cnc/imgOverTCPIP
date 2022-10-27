@@ -31,8 +31,38 @@ Considerations:
 
 		1. 	Multi threading. When integrating this code in a gui project, 
 			threading with detach is a must, otherwise this process 
-			will lock your gui app.
-		2. 	Log the bytes send and recieved so you can check if data 
+			will lock your gui app. This example is creating a thread in a
+			c++ class and passing a int value trough it.
+			
+			class theClass {
+			public:
+			    theClass(int theValue){
+					myThread = new std::thread(&XClient::thread,this,theValue);
+        			myThread->detach(); //! Execute the thread independent from other programs.
+        		}
+        		
+        		void thread(int theValue){
+        			//! This function will run like a while loop.
+        		}
+        	};
+        	private:
+        	std::thread *myThread;
+        	
+        
+	    2.  When using multi threading in a gui project, you could 
+	        use the std::mutex to lock variables being used by multiple
+	        threads at the same time. Setting up a mutex is quite easy.
+	        The thread calling the function() will lock acces from other 
+	        threads to the variable.
+	        
+	        std::mutex myMutex;
+	        void function(){
+	      		myMutex.lock();
+	      			// update your variable here. 
+	      		myMutex.unlock();
+	      	}
+	        
+		3. 	Log the bytes send and recieved so you can check if data 
 			is really transferred. 
 			I have experienced data losses in other socket examples.
 
